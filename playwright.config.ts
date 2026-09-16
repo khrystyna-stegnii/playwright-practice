@@ -44,8 +44,20 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'e2e'
+      name: 'setup',
+      testMatch: "*/setup/*.setup.ts"
     },
+    {
+      name: 'e2e',
+      testMatch: "*tests/*.spec.ts",
+      dependencies: ['setup'] 
+    },
+
+    {
+      name: 'api',
+      testMatch: '*/api/*.spec.ts',
+      dependencies: ['setup']
+    }
 
     // {
     //   name: 'firefox',
